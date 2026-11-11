@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khannum Organics</title>
+    <meta
+      name="description"
+      content="Modern cosmetics store landing page with shopping cart, checkout, and admin dashboard."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand-wrap">
+          <div class="brand-mark">K</div>
+          <div>
+            <div class="brand-name">Khannum Organics</div>
+            <div class="brand-tag">Botanical Beauty</div>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#products-section">Shop</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#checkout-section">Checkout</a>
+          <button class="nav-button" id="admin-trigger">Admin</button>
+        </nav>
+
+        <button class="cart-button" id="cart-toggle" aria-label="View cart">
+          Cart <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <span class="eyebrow">Clean beauty, everyday luxury</span>
+          <h1>Glow naturally with plant-powered care.</h1>
+          <p>
+            Discover high-performance skincare and makeup essentials made with
+            gentle ingredients and a radiant finish.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#products-section">Shop collection</a>
+            <button class="secondary-btn" id="open-admin-quick">Admin panel</button>
+          </div>
+          <ul class="hero-stats">
+            <li><strong>20k+</strong><span>happy customers</span></li>
+            <li><strong>98%</strong><span>repeat buyers</span></li>
+            <li><strong>100%</strong><span>vegan formulas</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Cosmetic product showcase">
+          <div class="visual-card main-card">
+            <img
+              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80"
+              alt="Luxury skincare products"
+            />
+          </div>
+          <div class="mini-badge">
+            <span>Best Seller</span>
+            <strong>Rose Renewal Serum</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits" class="benefits container">
+        <div class="benefit-item">
+          <span class="benefit-icon">✦</span>
+          <h3>Natural ingredients</h3>
+          <p>Thoughtfully sourced botanicals and skin-loving actives.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <h3>Clinically tested</h3>
+          <p>Formulas designed to deliver gentle, visible results.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">⚡</span>
+          <h3>Fast shipping</h3>
+          <p>Quick dispatch on all orders within the continental region.</p>
+        </div>
+      </section>
+
+      <section id="products-section" class="products container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Shop essentials</span>
+            <h2>Featured products</h2>
+          </div>
+          <p>Minimal formulas, maximum glow.</p>
+        </div>
+
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <aside id="cart-panel" class="cart-panel hidden" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h3>Your cart</h3>
+        <button class="close-button" id="close-cart" aria-label="Close cart">×</button>
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">$0.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong id="cart-shipping">$0.00</strong>
+        </div>
+        <div class="summary-row tax-row">
+          <span>Tax</span>
+          <strong id="cart-tax">$0.00</strong>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+      </div>
+
+      <a class="checkout-link" href="#checkout-section" id="checkout-link">Proceed to checkout</a>
+    </aside>
+
+    <section id="checkout-section" class="checkout-section container">
+      <div class="checkout-copy">
+        <span class="eyebrow">Secure checkout</span>
+        <h2>Complete your order</h2>
+        <p>
+          Fill in your shipping details and confirm your order. Your purchase will be saved in the admin panel.
+        </p>
+      </div>
+
+      <form id="checkout-form" class="checkout-form">
+        <div class="double-grid">
+          <label>
+            Full name
+            <input type="text" name="fullName" placeholder="Jane Carter" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="jane@email.com" required />
+          </label>
+        </div>
+
+        <div class="double-grid">
+          <label>
+            Phone
+            <input type="tel" name="phone" placeholder="+1 555 000 1234" required />
+          </label>
+          <label>
+            Country
+            <input type="text" name="country" placeholder="United States" required />
+          </label>
+        </div>
+
+        <label>
+          Street address
+          <input type="text" name="address" placeholder="124 Rose Avenue" required />
+        </label>
+
+        <div class="double-grid">
+          <label>
+            City
+            <input type="text" name="city" placeholder="New York" required />
+          </label>
+          <label>
+            ZIP code
+            <input type="text" name="zip" placeholder="10001" required />
+          </label>
+        </div>
+
+        <label>
+          Shipping method
+          <select name="shippingMethod" id="shipping-method">
+            <option value="standard">Standard delivery - $12.00</option>
+            <option value="express">Express delivery - $22.00</option>
+          </select>
+        </label>
+
+        <label>
+          Order notes
+          <textarea name="notes" rows="3" placeholder="Any delivery notes or product requests?"></textarea>
+        </label>
+
+        <div class="order-summary-box">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="checkout-subtotal">$0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong id="checkout-shipping">$0.00</strong>
+          </div>
+          <div class="summary-row tax-row">
+            <span>Tax</span>
+            <strong id="checkout-tax">$0.00</strong>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <strong id="checkout-total">$0.00</strong>
+          </div>
+        </div>
+
+        <button class="primary-btn submit-btn" type="submit">Place order</button>
+      </form>
+    </section>
+
+    <div id="admin-modal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card">
+        <button class="close-button modal-close" aria-label="Close admin panel">×</button>
+
+        <div id="admin-login-view" class="admin-view">
+          <div class="panel-header">
+            <span class="eyebrow">Secure access</span>
+            <h3>Admin login</h3>
+          </div>
+
+          <form id="admin-login-form" class="admin-form">
+            <label>
+              Username
+              <input type="text" name="username" placeholder="admin" required />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" placeholder="••••••••" required />
+            </label>
+            <button class="primary-btn" type="submit">Login</button>
+            <p class="helper-text">Demo credentials: admin / admin123</p>
+          </form>
+        </div>
+
+        <div id="admin-dashboard" class="admin-view hidden">
+          <div class="panel-header dashboard-header">
+            <div>
+              <span class="eyebrow">Dashboard</span>
+              <h3>Store administration</h3>
+            </div>
+            <button id="admin-logout" class="secondary-btn small-btn">Logout</button>
+          </div>
+
+          <div class="admin-tabs" role="tablist" aria-label="Admin views">
+            <button class="tab-button active" data-tab="products" type="button">Products</button>
+            <button class="tab-button" data-tab="orders" type="button">Orders</button>
+          </div>
+
+          <div id="admin-products-panel" class="admin-section">
+            <form id="admin-product-form" class="admin-form compact-form">
+              <input type="hidden" name="productId" />
+              <div class="double-grid">
+                <label>
+                  Product name
+                  <input type="text" name="productName" placeholder="Rose Glow Serum" required />
+                </label>
+                <label>
+                  Category
+                  <input type="text" name="productCategory" placeholder="Skincare" required />
+                </label>
+              </div>
+
+              <div class="double-grid">
+                <label>
+                  Price ($)
+                  <input type="number" name="productPrice" min="1" step="0.01" placeholder="48.00" required />
+                </label>
+                <label>
+                  Stock count
+                  <input type="number" name="productStock" min="0" step="1" placeholder="25" required />
+                </label>
+              </div>
+
+              <label>
+                Image URL
+                <input type="url" name="productImage" placeholder="https://example.com/product.jpg" required />
+              </label>
+
+              <label>
+                Description
+                <textarea name="productDescription" rows="3" placeholder="Short product description" required></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button class="primary-btn" type="submit" id="product-submit-button">Add product</button>
+                <button class="secondary-btn small-btn" type="button" id="cancel-product-edit">Cancel</button>
+              </div>
+            </form>
+
+            <div class="admin-list-wrap">
+              <h4>Catalog</h4>
+              <div id="admin-product-list" class="admin-list"></div>
+            </div>
+          </div>
+
+          <div id="admin-orders-panel" class="admin-section hidden">
+            <div class="admin-list-wrap">
+              <h4>Customer orders</h4>
+              <div id="admin-order-list" class="admin-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

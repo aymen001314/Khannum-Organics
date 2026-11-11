@@ -1,0 +1,40 @@
+# Khannum Organics
+
+A modern cosmetic e-commerce landing page with a shopping cart, checkout flow, and admin dashboard.
+
+## Features
+
+- Cosmetic brand landing page with premium product cards
+- Add to cart, increase/decrease quantities, and remove items
+- Order totals that update automatically with shipping and tax
+- Checkout form that captures customer and shipping details
+- Admin login using demo credentials
+- Product management: add, edit, and delete items
+- Order management: view submitted orders and update order status
+- Data persists in the browser via `localStorage`
+
+## Demo credentials
+
+- Username: `admin`
+- Password: `admin123`
+
+## Run locally
+
+Because this project is a static frontend, you can start it with a simple local server:
+
+```bash
+cd /path/to/Khannum-Organics
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000` in your browser.
+
+## Files
+
+- `index.html` — main storefront and admin panel layout
+- `styles.css` — responsive styling for the storefront and dashboard
+- `app.js` — product data, cart logic, checkout process, and admin logic
+
+## Notes
+
+The app is designed as a functional demo for evaluation. All e-commerce data is stored in the browser, which makes the site easy to run without setting up a database.
