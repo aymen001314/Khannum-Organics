@@ -50,11 +50,16 @@
   }
 
   const catalogScript = document.createElement('script');
-  catalogScript.src = 'catalog-refresh.js';
+  catalogScript.src = new URL('catalog-refresh.js', document.currentScript?.src || window.location.href).href;
   catalogScript.addEventListener('load', () => {
-    const adminFixScript = document.createElement('script');
-    adminFixScript.src = 'admin-product-fix.js';
-    document.body.append(adminFixScript);
+    const imageFixScript = document.createElement('script');
+    imageFixScript.src = new URL('product-image-fix.js', catalogScript.src).href;
+    imageFixScript.addEventListener('load', () => {
+      const adminFixScript = document.createElement('script');
+      adminFixScript.src = new URL('admin-product-fix.js', catalogScript.src).href;
+      document.body.append(adminFixScript);
+    });
+    document.body.append(imageFixScript);
   });
   document.body.append(catalogScript);
 
