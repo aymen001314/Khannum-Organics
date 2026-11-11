@@ -1,4 +1,4 @@
-/* Shared page interactions + campaign hero. */
+/* Shared page interactions + brand styling polish. */
 (() => {
   const menuButton = document.querySelector('.mobile-menu');
   const topbar = document.querySelector('.topbar');
@@ -19,6 +19,19 @@
     }
   });
 
+  // A more visible, bold wordmark in a warm beauty-brand palette.
+  const brandStyles = document.createElement('style');
+  brandStyles.textContent = `
+    .brand-wrap{gap:12px!important;transition:transform .2s ease}
+    .brand-wrap:hover{transform:translateY(-1px)}
+    .brand-mark{width:46px!important;height:46px!important;display:grid!important;place-items:center!important;border:1.5px solid #a34a4c!important;border-radius:50%!important;background:linear-gradient(145deg,#fff8eb 0%,#f0d7b4 100%)!important;color:#8f2638!important;font-size:25px!important;font-weight:700!important;box-shadow:0 3px 12px rgba(106,35,43,.13)!important}
+    .brand-lockup{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:1px!important}
+    .brand-name{color:#7d1f32!important;font-size:clamp(20px,2vw,25px)!important;font-weight:700!important;letter-spacing:.18em!important;line-height:1.08!important;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+    .brand-lockup .brand-tagline,.brand-lockup small,.brand-subtitle{color:#9a6549!important;font-size:9px!important;font-weight:600!important;letter-spacing:.16em!important;line-height:1.35!important}
+    @media(max-width:620px){.brand-wrap{gap:8px!important}.brand-mark{width:39px!important;height:39px!important;font-size:22px!important}.brand-name{font-size:17px!important;letter-spacing:.13em!important}.brand-lockup .brand-tagline,.brand-lockup small,.brand-subtitle{font-size:7px!important}}
+  `;
+  document.head.append(brandStyles);
+
   const hero = document.querySelector('.lux-hero');
   if (hero) {
     hero.style.backgroundImage = "linear-gradient(90deg,rgba(28,8,13,.63),rgba(40,8,16,.20) 60%,rgba(28,8,13,.04)),url('assets/products/saydung-girl-5835667_1920.jpg')";
@@ -33,18 +46,6 @@
     const caption = hero.querySelector('.lux-video-caption');
     if (caption) caption.textContent = 'THE RED LIP EDIT · KHANNUM ORGANICS';
   }
-
-  // Run classic scripts in sequence after app.js has initialized its shared catalog.
-  const imageScript = document.createElement('script');
-  imageScript.src = 'uploaded-product-images.js';
-  imageScript.async = false;
-  imageScript.onload = () => {
-    const catalogScript = document.createElement('script');
-    catalogScript.src = 'catalog-enhancements.js';
-    catalogScript.async = false;
-    document.body.append(catalogScript);
-  };
-  document.body.append(imageScript);
 
   document.getElementById('checkout-link')?.addEventListener('click', () => {
     document.getElementById('cart-panel')?.classList.add('hidden');
