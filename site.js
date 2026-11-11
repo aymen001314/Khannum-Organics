@@ -31,12 +31,13 @@
   `;
   document.head.append(brandStyles);
 
+  // Use the uploaded lipstick campaign image for the home hero and keep its framing natural.
   const hero = document.querySelector('.lux-hero');
   if (hero) {
-    const campaignPhoto = 'assets/products/saydung-girl-5835667_1920.jpg';
-    hero.style.backgroundImage = `linear-gradient(90deg,rgba(28,8,13,.56),rgba(40,8,16,.12) 62%,rgba(28,8,13,.02)),url('${campaignPhoto}')`;
+    const campaignPhoto = 'assets/products/lip.png';
+    hero.style.backgroundImage = `linear-gradient(90deg,rgba(28,8,13,.58),rgba(40,8,16,.20) 58%,rgba(28,8,13,.04)),url('${campaignPhoto}')`;
     hero.style.backgroundSize = 'cover';
-    hero.style.backgroundPosition = 'center 36%';
+    hero.style.backgroundPosition = 'center 38%';
     hero.style.backgroundRepeat = 'no-repeat';
     hero.style.backgroundColor = '#421323';
     const video = hero.querySelector('.lux-hero-video');
