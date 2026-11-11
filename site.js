@@ -31,11 +31,10 @@
   `;
   document.head.append(brandStyles);
 
-  // Use the uploaded lipstick campaign image for the home hero and keep its framing natural.
   const hero = document.querySelector('.lux-hero');
   if (hero) {
     const campaignPhoto = 'assets/products/lip.png';
-    hero.style.backgroundImage = `linear-gradient(90deg,rgba(28,8,13,.58),rgba(40,8,16,.20) 58%,rgba(28,8,13,.04)),url('${campaignPhoto}')`;
+    hero.style.backgroundImage = `linear-gradient(90deg,rgba(28,8,13,.58),rgba(40,8,16,.20) 58%,rgba(28,8,16,.04)),url('${campaignPhoto}')`;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center 38%';
     hero.style.backgroundRepeat = 'no-repeat';
@@ -52,7 +51,11 @@
 
   const catalogScript = document.createElement('script');
   catalogScript.src = 'catalog-refresh.js';
-  catalogScript.async = false;
+  catalogScript.addEventListener('load', () => {
+    const adminFixScript = document.createElement('script');
+    adminFixScript.src = 'admin-product-fix.js';
+    document.body.append(adminFixScript);
+  });
   document.body.append(catalogScript);
 
   document.getElementById('checkout-link')?.addEventListener('click', () => {

@@ -1,4 +1,4 @@
-/* Refresh the store using the customer's uploaded makeup photos. */
+/* Refresh the store catalog without deleting products added by the admin. */
 (() => {
   const catalog = [
     { id: 'velvet-icon-lipstick', name: 'Velvet Icon Lipstick', category: 'LIPS', price: 29, stock: 25, image: 'assets/products/lipstick.png', description: 'A bold, richly pigmented red lipstick for a confident finish.' },
@@ -11,11 +11,12 @@
     { id: 'makeup-edit', name: 'The Makeup Edit', category: 'MAKEUP', price: 42, stock: 12, image: 'assets/products/eyeshadow-palette-lipstick-brush-cosmetics-products-dual-background.jpg', description: 'A curated mix of makeup favorites to inspire your next look.' },
   ];
 
-  // Replace old demo skincare entries: those products had no matching customer photos.
+  const seededIds = new Set(catalog.map((item) => item.id));
+  const customProducts = products.filter((item) => item && !seededIds.has(item.id));
   products = catalog.map((fresh) => {
     const old = products.find((item) => item.id === fresh.id);
     return old ? { ...fresh, stock: old.stock } : fresh;
-  });
+  }).concat(customProducts);
   const availableIds = new Set(products.map((item) => item.id));
   cart = cart.filter((entry) => availableIds.has(entry.id));
   if (typeof saveAll === 'function') saveAll();
