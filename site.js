@@ -33,9 +33,12 @@
 
   const hero = document.querySelector('.lux-hero');
   if (hero) {
-    hero.style.backgroundImage = "linear-gradient(90deg,rgba(28,8,13,.63),rgba(40,8,16,.20) 60%,rgba(28,8,13,.04)),url('assets/products/lips.png')";
+    const campaignPhoto = 'assets/products/saydung-girl-5835667_1920.jpg';
+    hero.style.backgroundImage = `linear-gradient(90deg,rgba(28,8,13,.56),rgba(40,8,16,.12) 62%,rgba(28,8,13,.02)),url('${campaignPhoto}')`;
     hero.style.backgroundSize = 'cover';
-    hero.style.backgroundPosition = 'center 38%';
+    hero.style.backgroundPosition = 'center 36%';
+    hero.style.backgroundRepeat = 'no-repeat';
+    hero.style.backgroundColor = '#421323';
     const video = hero.querySelector('.lux-hero-video');
     if (video) video.hidden = true;
     const shade = hero.querySelector('.lux-hero-shade');
@@ -46,7 +49,6 @@
     if (caption) caption.textContent = 'THE RED LIP EDIT · KHANNUM ORGANICS';
   }
 
-  // Load the uploaded-photo catalog after the core storefront initializes.
   const catalogScript = document.createElement('script');
   catalogScript.src = 'catalog-refresh.js';
   catalogScript.async = false;
